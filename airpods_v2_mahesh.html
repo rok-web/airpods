@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zybuds — Premium Wireless Earbuds | Hyderabad</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   ZYBUDS — DARK PREMIUM THEME
+   ============================================================ */
+:root {
+  --bg:        #080808;
+  --bg2:       #0f0f0f;
+  --bg3:       #161616;
+  --bg4:       #1e1e1e;
+  --surface:   #242424;
+  --border:    rgba(255,255,255,0.08);
+  --border2:   rgba(255,255,255,0.13);
+  --ink:       #f0ede8;
+  --ink2:      #c8c4bc;
+  --muted:     #6b6b6b;
+  --accent:    #e8c97a;   /* gold */
+  --accent2:   #f5dfa0;
+  --accentdim: rgba(232,201,122,0.12);
+  --green:     #4caf6e;
+  --greenl:    rgba(76,175,110,0.1);
+  --red:       #e85d5d;
+  --white:     #ffffff;
+  --radius:    16px;
+  --radius-lg: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── POPUP NOTIFICATION ── */
+/* [CHANGE 11] Load notification */
+.notif-popup {
+  position: fixed;
+  top: 24px; left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 40px;
+  padding: 12px 22px;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 600;
+  color: var(--ink);
+  z-index: 9999;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s;
+  opacity: 0;
+  white-space: nowrap;
+}
+.notif-popup.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.notif-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green);
+  animation: pdot 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes pdot {
+  0%,100% { box-shadow: 0 0 0 0 rgba(76,175,110,0.5); }
+  50%      { box-shadow: 0 0 0 6px rgba(76,175,110,0); }
+}
+
+/* ── TICKER ── */
+/* [CHANGE: Ticker restyled for dark] */
+.ticker-wrap {
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  padding: 10px 0;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-block;
+  animation: ticker 32s linear infinite;
+}
+.ticker-track span {
+  display: inline-block;
+  padding: 0 36px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink2);
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+.ticker-track span.dot { color: var(--accent); padding: 0 6px; }
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── NAVBAR ── */
+/* [CHANGE 8] Zybuds branding */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(8,8,8,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  height: 66px;
+}
+.logo {
+  display: flex; flex-direction: column; align-items: flex-start; line-height: 1;
+}
+.logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 700; font-style: italic;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+.logo-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px; font-weight: 800;
+  color: var(--white);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: -2px;
+  opacity: 0.9;
+}
+.logo-mark {
+  width: 38px; height: 38px;
+  border: 1.5px solid var(--accent);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.logo-mark svg {
+  width: 18px; height: 18px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px; font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.3px;
+}
+.logo-text sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-left: 7px;
+}
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  font-size: 13px; font-weight: 500;
+  color: var(--muted); text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 0.3px;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+
+.nav-order {
+  background: var(--accent);
+  color: #000;
+  border: none; border-radius: 10px;
+  padding: 9px 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+}
+.nav-order:hover { background: var(--accent2); transform: translateY(-1px); }
+
+/* ── BREADCRUMB ── */
+.breadcrumb {
+  padding: 12px 5%;
+  font-size: 11px;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 6px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  letter-spacing: 0.5px;
+}
+.breadcrumb a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--accent); }
+
+/* ── HERO GRID ── */
+.hero {
+  display: grid;
+  grid-template-columns: 52% 48%;
+  min-height: 90vh;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* LEFT — IMAGE PANEL */
+/* [CHANGE 6] Real product image placeholders with zoom */
+.img-panel {
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 67px;
+  height: calc(100vh - 67px);
+  overflow: hidden;
+}
+.main-img {
+  flex: 1;
+  background: var(--bg3);
+  border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  cursor: zoom-in;
+}
+/* subtle grain texture on the main image box */
+.main-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.4;
+}
+/* Radial glow behind product */
+.main-img-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(232,201,122,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+/* [CHANGE 6] Product image placeholder — styled as real product shot */
+.product-img-wrap {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 100%;
+  transition: transform 0.6s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+.main-img:hover .product-img-wrap { transform: scale(1.07); }
+.product-placeholder {
+  width: 72%;
+  max-width: 340px;
+  aspect-ratio: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px;
+}
+/* Earbuds SVG illustration */
+.earbuds-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 60px rgba(232,201,122,0.22));
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+@keyframes gentleFloat {
+  0%,100% { transform: translateY(0) rotate(-1deg); }
+  50%      { transform: translateY(-14px) rotate(1deg); }
+}
+.img-tag-tl {
+  position: absolute; top: 16px; left: 16px;
+  background: var(--green);
+  color: #fff;
+  font-size: 10px; font-weight: 700;
+  padding: 5px 12px; border-radius: 6px;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  z-index: 3;
+}
+.img-tag-tr {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--accentdim);
+  border: 1px solid rgba(232,201,122,0.3);
+  color: var(--accent);
+  font-size: 10px; font-weight: 700;
+  padding: 5px 12px; border-radius: 6px;
+  letter-spacing: 0.8px;
+  z-index: 3;
+}
+.thumbs-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+}
+.thumb2 {
+  background: var(--bg3);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.22s;
+  overflow: hidden;
+  position: relative;
+}
+.thumb2:hover, .thumb2.active {
+  border-color: var(--accent);
+  background: var(--accentdim);
+}
+/* Thumb placeholders */
+.thumb2 svg {
+  width: 56%; height: 56%;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.thumb2.active svg, .thumb2:hover svg { opacity: 1; }
+
+.img-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+}
+.img-stat {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 8px;
+  text-align: center;
+}
+.img-stat .s-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px; font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.img-stat .s-lbl {
+  font-size: 9px; font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* RIGHT — INFO PANEL */
+.info-panel {
+  padding: 44px 44px 100px;
+  background: var(--bg);
+  overflow-y: auto;
+}
+.editorial-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.editorial-label::before {
+  content: '';
+  display: block;
+  width: 22px; height: 1px;
+  background: var(--accent);
+}
+.p2-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3.6vw, 50px);
+  font-weight: 900;
+  line-height: 1.06;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.p2-title em { color: var(--accent); font-style: italic; }
+.p2-tagline {
+  font-size: 14px; font-weight: 400;
+  color: var(--ink2);
+  margin-bottom: 22px;
+  line-height: 1.65;
+  max-width: 390px;
+}
+
+/* [CHANGE 3] Live activity strip */
+.live-activity {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 16px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.la-item {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 600;
+  color: var(--ink2);
+}
+.la-item .la-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--white);
+}
+.la-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green);
+  animation: spulse 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.la-sep { width: 1px; height: 24px; background: var(--border); }
+
+/* PRICE BOX */
+.price-box2 {
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  background: var(--bg3);
+  padding: 22px 24px;
+  margin-bottom: 18px;
+  position: relative;
+}
+.price-box2-top {
+  display: flex; align-items: flex-end;
+  gap: 14px; flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.p2-main-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px; font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+}
+.p2-main-price sup { font-size: 24px; vertical-align: super; }
+.p2-old-price {
+  font-size: 17px;
+  color: var(--muted);
+  text-decoration: line-through;
+  padding-bottom: 6px;
+}
+.p2-save-chip {
+  background: var(--accentdim);
+  border: 1px solid rgba(232,201,122,0.25);
+  color: var(--accent);
+  font-size: 11px; font-weight: 800;
+  padding: 5px 12px; border-radius: 20px;
+  padding-bottom: 6px; letter-spacing: 0.3px;
+}
+.price-breakdown {
+  font-size: 13px;
+  color: var(--muted);
+  padding-top: 11px;
+  border-top: 1px dashed var(--border);
+  line-height: 1.7;
+}
+.price-breakdown strong { color: var(--ink); }
+
+/* [CHANGE 4] WHY ₹99 — simplified */
+.why99-box {
+  background: var(--bg3);
+  border: 1px solid rgba(232,201,122,0.2);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 18px;
+}
+.why99-title {
+  font-size: 12px; font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.why99-steps {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.why99-step {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; color: var(--ink2); line-height: 1.45;
+}
+.w99-icon {
+  width: 22px; height: 22px;
+  background: var(--accentdim);
+  border: 1px solid rgba(232,201,122,0.25);
+  border-radius: 6px;
+  color: var(--accent);
+  font-size: 10px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.why99-step strong { color: var(--ink); }
+.why99-refund {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(232,201,122,0.15);
+  font-size: 12px; color: var(--green); font-weight: 700;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* COLOR PICKER */
+.opt2-label {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--muted); margin-bottom: 10px;
+}
+.opt2-label span { color: var(--ink); margin-left: 8px; }
+.colors2 { display: flex; gap: 10px; margin-bottom: 20px; }
+.col2 {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.22s;
+  position: relative;
+}
+.col2:hover { transform: scale(1.14); }
+.col2.active { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(232,201,122,0.2); }
+.col2.white2  { background: #ddd9d2; border: 2px solid #888; }
+.col2.black2  { background: #1a1a1a; border: 2px solid #444; }
+.col2.blue2   { background: linear-gradient(135deg,#1565c0,#64b5f6); }
+
+/* STOCK */
+.stock2 {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; margin-bottom: 20px;
+  background: rgba(232,93,93,0.07);
+  border: 1px solid rgba(232,93,93,0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+.sdot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--red);
+  animation: spulse 1.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes spulse {
+  0%,100% { opacity:1; box-shadow: 0 0 0 0 rgba(232,93,93,0.5); }
+  50%      { opacity:0.7; box-shadow: 0 0 0 5px rgba(232,93,93,0); }
+}
+.stock2-text { font-weight: 700; color: var(--red); }
+.stock2-sub { color: var(--muted); font-size: 12px; }
+
+/* WARRANTY RIBBON */
+.warranty-ribbon {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 18px;
+}
+.wr-icon { font-size: 28px; flex-shrink: 0; }
+.wr-text h4 {
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 0.2px; margin-bottom: 2px; color: var(--ink);
+}
+.wr-text p { font-size: 12px; color: var(--muted); line-height: 1.4; }
+.wr-badge {
+  margin-left: auto;
+  background: var(--accentdim);
+  border: 1px solid rgba(232,201,122,0.25);
+  color: var(--accent);
+  font-size: 10px; font-weight: 800;
+  padding: 6px 14px; border-radius: 20px;
+  text-align: center;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* BUTTONS */
+/* [CHANGE 4] Strong CTA */
+.btn2-primary {
+  width: 100%;
+  background: var(--accent);
+  color: #000;
+  border: none; border-radius: var(--radius);
+  padding: 18px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 800;
+  cursor: pointer; margin-bottom: 10px;
+  transition: all 0.25s;
+  display: flex; align-items: center; justify-content: space-between;
+  letter-spacing: 0.2px;
+}
+.btn2-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(232,201,122,0.25); }
+.btn2-primary .btn-right { font-size: 12px; opacity: 0.65; font-weight: 600; }
+
+
+
+/* GUARANTEE */
+.guarantee2 {
+  background: var(--greenl);
+  border: 1px solid rgba(76,175,110,0.2);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 20px;
+}
+.g2-title {
+  font-size: 11px; font-weight: 800;
+  color: var(--green);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.g2-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+.g2-item {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 12px; color: var(--ink2);
+  line-height: 1.45;
+}
+.g2-check { color: var(--green); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.g2-item strong { color: var(--ink); font-size: 12px; }
+
+/* PAYMENT OPTIONS */
+.payment-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.pay-opt {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.pay-opt.active {
+  border-color: var(--accent);
+  background: var(--accentdim);
+}
+.po-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.po-sub {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.pay-opt.active .po-sub { color: var(--accent); opacity: 0.8; }
+
+/* TRUST ROW */
+.trust2-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.t2 {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg3);
+  padding: 12px 6px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.t2:hover { border-color: var(--border2); }
+.t2 .ti { font-size: 18px; display: block; margin-bottom: 5px; }
+.t2 .tl { font-size: 9.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4; }
+
+/* ============================================================
+   BELOW FOLD
+   ============================================================ */
+.below-fold {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.section2 {
+  padding: 72px 0;
+  border-top: 1px solid var(--border);
+}
+.sec2-eyebrow {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sec2-eyebrow::after {
+  content: '';
+  flex: 1; max-width: 50px;
+  height: 1px; background: var(--accent); opacity: 0.5;
+}
+.sec2-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.8vw, 42px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.sec2-title em { color: var(--accent); font-style: italic; }
+.sec2-sub {
+  font-size: 14px; color: var(--muted);
+  margin-bottom: 36px; max-width: 460px;
+  line-height: 1.65;
+}
+
+/* ── [CHANGE 2] VIDEO SECTION ── */
+.video-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 0;
+}
+.video-block {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  aspect-ratio: 16/9;
+  cursor: pointer;
+}
+.video-block video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.video-block:hover video { transform: scale(1.04); }
+.video-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+  display: flex; align-items: flex-end;
+  padding: 20px;
+}
+.video-caption {
+  font-size: 13px; font-weight: 700;
+  color: #fff; letter-spacing: 0.3px;
+}
+/* Video placeholder (no real video files — styled placeholder) */
+.video-ph {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px;
+  background: var(--bg4);
+}
+.vid-play {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.06);
+  transition: all 0.2s;
+}
+.video-block:hover .vid-play {
+  border-color: var(--accent);
+  background: var(--accentdim);
+}
+.vid-play svg { fill: rgba(255,255,255,0.7); width: 20px; height: 20px; }
+
+/* [CHANGE 5] FEATURES — only 4 */
+.feat2-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.feat2 {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.feat2::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s;
+}
+.feat2:hover { transform: translateY(-4px); border-color: var(--border2); background: var(--bg4); }
+.feat2:hover::after { transform: scaleX(1); }
+.feat2-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+.feat2-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 7px; }
+.feat2-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* SPECS */
+.specs2-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+.spec2-table {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.spec2-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  transition: background 0.15s;
+}
+.spec2-row:last-child { border-bottom: none; }
+.spec2-row:hover { background: var(--bg4); }
+.sk { color: var(--muted); font-weight: 500; }
+.sv { color: var(--ink); font-weight: 700; text-align: right; }
+.spec2-visual {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 18px;
+}
+.spec-big-svg {
+  width: 70%; max-width: 220px;
+  filter: drop-shadow(0 8px 30px rgba(232,201,122,0.18));
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+.spec-bullets {
+  display: flex; flex-direction: column; gap: 9px;
+  width: 100%;
+}
+.spec-bullet {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 13px; color: var(--ink2);
+  background: var(--bg4);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-weight: 600;
+}
+.sb-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
+}
+
+/* BOX CONTENTS */
+.box2-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.box2-item {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px 16px;
+  text-align: center;
+  transition: all 0.25s;
+}
+.box2-item:hover {
+  border-color: rgba(232,201,122,0.3);
+  transform: translateY(-4px);
+}
+.box2-em { font-size: 36px; display: block; margin-bottom: 10px; }
+.box2-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+.box2-qty { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+/* REVIEWS */
+/* [CHANGE 7] All English reviews */
+.reviews2-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 36px; align-items: center;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 20px;
+}
+.big-score { text-align: center; padding-right: 36px; border-right: 1px solid var(--border); }
+.big-score-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 76px; font-weight: 900;
+  color: var(--white); line-height: 1;
+}
+.big-score-stars { color: var(--accent); font-size: 20px; margin: 4px 0; }
+.big-score-lbl { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 0.5px; }
+.rbars2 { display: flex; flex-direction: column; gap: 8px; }
+.rb2row { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+.rb2lbl { color: var(--muted); width: 30px; text-align: right; font-weight: 500; }
+.rb2track { flex: 1; height: 5px; background: var(--bg4); border-radius: 3px; overflow: hidden; }
+.rb2fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+.rb2count { color: var(--muted); width: 24px; font-size: 11px; }
+
+.reviews2-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.rev2 {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  transition: all 0.22s;
+}
+.rev2:hover { border-color: rgba(232,201,122,0.2); background: var(--bg4); }
+.rev2-top { display: flex; align-items: center; gap: 11px; margin-bottom: 10px; }
+.rev2-av {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 900; color: #fff;
+  flex-shrink: 0;
+  font-family: 'Playfair Display', serif;
+}
+.rev2-name { font-size: 13px; font-weight: 700; color: var(--white); }
+.rev2-loc { font-size: 10px; color: var(--muted); margin-top: 1px; }
+.rev2-stars { color: var(--accent); font-size: 12px; margin-bottom: 8px; letter-spacing: 1px; }
+.rev2-text { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+.rev2-verified {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 10px;
+  font-size: 10px; font-weight: 700;
+  color: var(--green); letter-spacing: 0.5px;
+}
+.rev2-date { font-size: 10px; color: var(--muted); margin-top: 3px; }
+
+/* FAQ */
+.faq2-list { display: flex; flex-direction: column; gap: 8px; }
+.faq2-item {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.faq2-item.open { border-color: rgba(232,201,122,0.25); }
+.faq2-q {
+  padding: 17px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer;
+  font-size: 14px; font-weight: 600;
+  color: var(--ink); gap: 14px;
+  transition: color 0.2s;
+}
+.faq2-q:hover { color: var(--accent); }
+.faq2-arr {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; color: var(--muted);
+  transition: all 0.25s;
+  flex-shrink: 0;
+}
+.faq2-item.open .faq2-arr {
+  background: var(--accentdim);
+  border-color: rgba(232,201,122,0.3);
+  color: var(--accent);
+  transform: rotate(45deg);
+}
+.faq2-a {
+  padding: 0 20px;
+  max-height: 0; overflow: hidden;
+  transition: all 0.3s ease;
+  font-size: 13px; color: var(--muted); line-height: 1.75;
+}
+.faq2-item.open .faq2-a { padding: 0 20px 16px; max-height: 250px; }
+
+/* FOUNDER */
+/* [CHANGE 8] Nova Audio founder section */
+.founder2 {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  padding: 40px 44px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: start;
+  margin: 0 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.founder2::before {
+  content: '"';
+  position: absolute; top: -20px; right: 36px;
+  font-family: 'Playfair Display', serif;
+  font-size: 180px;
+  color: rgba(232,201,122,0.04);
+  line-height: 1; pointer-events: none;
+}
+.founder2-av {
+  width: 76px; height: 76px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  border: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 900;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.founder2-eyebrow {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.founder2-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 900;
+  color: var(--white); margin-bottom: 12px;
+  line-height: 1.2;
+}
+.founder2-text {
+  font-size: 14px; color: var(--muted);
+  line-height: 1.8; margin-bottom: 18px;
+  max-width: 540px;
+}
+.founder2-meta { display: flex; flex-wrap: wrap; gap: 10px; }
+.f2-chip {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--bg4);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 11px; font-weight: 600;
+  color: var(--ink2);
+}
+
+/* FOOTER */
+footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  padding: 50px 5% 28px;
+}
+.footer2-inner {
+  max-width: 1440px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 36px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 22px;
+}
+.f2-brand .f2-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.f2-brand p { font-size: 12px; line-height: 1.7; max-width: 200px; color: var(--muted); }
+.f2-col h4 {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink2); margin-bottom: 14px;
+}
+.f2-col a {
+  display: block; font-size: 12px;
+  color: var(--muted);
+  text-decoration: none; margin-bottom: 8px;
+  transition: color 0.2s;
+}
+.f2-col a:hover { color: var(--accent); }
+.footer2-bottom {
+  max-width: 1440px; margin: 0 auto;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 10px;
+  font-size: 11px; color: var(--muted);
+}
+
+/* ── [CHANGE 9] MOBILE STICKY BAR ── */
+.mob-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+  z-index: 200;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.4);
+}
+.mob-price-wrap { flex: 1; }
+.mob-price-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 900; color: var(--white);
+}
+.mob-price-old { font-size: 11px; color: var(--muted); text-decoration: line-through; }
+.mob-order {
+  background: var(--accent);
+  color: #000; border: none;
+  border-radius: 12px;
+  padding: 13px 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 800;
+  cursor: pointer; white-space: nowrap;
+}
+
+
+
+/* ANIMATIONS */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.shown { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:1100px) {
+  .hero { grid-template-columns: 1fr; }
+  .img-panel { position:static; height:auto; }
+  .feat2-grid { grid-template-columns: repeat(2,1fr); }
+  .specs2-layout { grid-template-columns: 1fr; }
+  .reviews2-grid { grid-template-columns: 1fr; }
+  .box2-grid { grid-template-columns: repeat(2,1fr); }
+  .footer2-inner { grid-template-columns: 1fr 1fr; }
+  .mob-bar { display: flex; }
+  body { padding-bottom: 82px; }
+  .reviews2-header { grid-template-columns: 1fr; gap: 18px; }
+  .big-score { padding-right: 0; border-right: none; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+  .founder2 { grid-template-columns: 1fr; }
+  .wa-float-btn { width: 52px; height: 52px; }
+  .video-strip { grid-template-columns: 1fr; }
+}
+@media(max-width:640px) {
+  .nav-links { display: none; }
+  .feat2-grid { grid-template-columns: 1fr; }
+  .trust2-row { grid-template-columns: repeat(2,1fr); }
+  .g2-grid { grid-template-columns: 1fr; }
+  .footer2-inner { grid-template-columns: 1fr; }
+  .info-panel { padding: 26px 18px 100px; }
+  .img-panel { padding: 18px; }
+  .founder2 { padding: 26px 20px; }
+  .live-activity { flex-wrap: nowrap; overflow-x: auto; }
+
+}
+</style>
+</head>
+<body>
+
+<!-- [CHANGE 11] LOAD NOTIFICATION POPUP -->
+<div class="notif-popup" id="notifPopup">
+  <div class="notif-dot"></div>
+  🔥 <span id="notifText">23 people ordered today</span>
+</div>
+
+<!-- TICKER [restyled for dark] -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>🚀 Same Day Delivery — All Hyderabad</span><span class="dot">✦</span>
+    <span>📦 Open Box — Check Before You Pay</span><span class="dot">✦</span>
+    <span>🛡️ 1 Year Warranty Included</span><span class="dot">✦</span>
+    <span>💰 COD Available — Pay ₹99 to Confirm</span><span class="dot">✦</span>
+    <span>📍 Based in Secunderabad, Hyderabad</span><span class="dot">✦</span>
+    <span>500+ Orders Delivered</span><span class="dot">✦</span>
+    <span>🚀 Same Day Delivery — All Hyderabad</span><span class="dot">✦</span>
+    <span>📦 Open Box — Check Before You Pay</span><span class="dot">✦</span>
+    <span>🛡️ 1 Year Warranty Included</span><span class="dot">✦</span>
+    <span>💰 COD Available — Pay ₹99 to Confirm</span><span class="dot">✦</span>
+    <span>📍 Based in Secunderabad, Hyderabad</span><span class="dot">✦</span>
+    <span>500+ Orders Delivered</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- [CHANGE 8] NAVBAR — Zybuds branding -->
+<nav>
+  <a href="#" class="logo" style="text-decoration: none;">
+    <div class="logo-main">Zybuds</div>
+    <div class="logo-sub">Trendy Accessories</div>
+  </a>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Earbuds</a>
+    <a href="#">Smartwatches</a>
+    <a href="#">About</a>
+  </div>
+  <div class="nav-right">
+
+    <button class="nav-order" onclick="handleOrder()">Order Now</button>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Home</a>&nbsp;›&nbsp;
+  <a href="#">Earbuds &amp; Audio</a>&nbsp;›&nbsp;
+  <span style="color:var(--ink2);">Pro Max Wireless</span>
+</div>
+
+<!-- HERO GRID -->
+<div class="hero">
+
+  <!-- LEFT — IMAGE PANEL [CHANGE 6] -->
+  <div class="img-panel">
+    <div class="main-img" id="mainImgBox">
+      <div class="main-img-glow"></div>
+      <div class="img-tag-tl">✅ QC Tested</div>
+      <div class="img-tag-tr">⚡ Same Day</div>
+      <!-- Product image placeholder - SVG earbuds illustration -->
+      <div class="product-img-wrap" id="productImgWrap">
+        <div class="product-placeholder">
+          <svg class="earbuds-svg" id="mainProductSvg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left earbud -->
+            <g transform="translate(50,80)">
+              <ellipse cx="55" cy="110" rx="38" ry="52" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="2"/>
+              <ellipse cx="55" cy="110" rx="28" ry="40" fill="#141414"/>
+              <circle cx="55" cy="110" r="16" fill="#0a0a0a" stroke="#333" stroke-width="1.5"/>
+              <circle cx="55" cy="110" r="8" fill="#1c1c1c"/>
+              <ellipse cx="55" cy="65" rx="14" ry="28" fill="#222" stroke="#2e2e2e" stroke-width="1.5" rx="8"/>
+              <!-- Speaker grille dots -->
+              <circle cx="49" cy="108" r="1.5" fill="#333"/>
+              <circle cx="55" cy="105" r="1.5" fill="#333"/>
+              <circle cx="61" cy="108" r="1.5" fill="#333"/>
+              <circle cx="55" cy="113" r="1.5" fill="#333"/>
+              <!-- Accent ring -->
+              <circle cx="55" cy="110" r="21" fill="none" stroke="#e8c97a" stroke-width="0.8" opacity="0.6"/>
+            </g>
+            <!-- Right earbud -->
+            <g transform="translate(155,80)">
+              <ellipse cx="55" cy="110" rx="38" ry="52" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="2"/>
+              <ellipse cx="55" cy="110" rx="28" ry="40" fill="#141414"/>
+              <circle cx="55" cy="110" r="16" fill="#0a0a0a" stroke="#333" stroke-width="1.5"/>
+              <circle cx="55" cy="110" r="8" fill="#1c1c1c"/>
+              <ellipse cx="55" cy="65" rx="14" ry="28" fill="#222" stroke="#2e2e2e" stroke-width="1.5" rx="8"/>
+              <circle cx="49" cy="108" r="1.5" fill="#333"/>
+              <circle cx="55" cy="105" r="1.5" fill="#333"/>
+              <circle cx="61" cy="108" r="1.5" fill="#333"/>
+              <circle cx="55" cy="113" r="1.5" fill="#333"/>
+              <circle cx="55" cy="110" r="21" fill="none" stroke="#e8c97a" stroke-width="0.8" opacity="0.6"/>
+            </g>
+            <!-- Charging case hint at bottom -->
+            <rect x="88" y="250" width="124" height="34" rx="17" fill="#181818" stroke="#282828" stroke-width="1.5"/>
+            <line x1="148" y1="260" x2="154" y2="260" stroke="#e8c97a" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="150" cy="265" r="3" fill="none" stroke="#555" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thumbnails [CHANGE 6] -->
+    <div class="thumbs-row">
+      <!-- Earbud view -->
+      <div class="thumb2 active" onclick="switchView('earbuds',this)">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="13" cy="22" rx="7" ry="10" fill="#2a2a2a" stroke="#e8c97a" stroke-width="1"/>
+          <ellipse cx="27" cy="22" rx="7" ry="10" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
+        </svg>
+      </div>
+      <!-- Case view -->
+      <div class="thumb2" onclick="switchView('case',this)">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="12" width="28" height="20" rx="10" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
+          <line x1="18" y1="21" x2="22" y2="21" stroke="#e8c97a" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <!-- Side view -->
+      <div class="thumb2" onclick="switchView('side',this)">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="20" cy="22" rx="8" ry="11" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
+          <ellipse cx="20" cy="13" rx="4" ry="7" fill="#333" stroke="#555" stroke-width="1"/>
+        </svg>
+      </div>
+      <!-- Cable view -->
+      <div class="thumb2" onclick="switchView('cable',this)">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 8 Q10 20 14 32" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/>
+          <rect x="12" y="30" width="5" height="6" rx="1" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
+          <rect x="23" y="8" width="4" height="9" rx="2" fill="#2a2a2a" stroke="#e8c97a" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="img-stats-row">
+      <div class="img-stat">
+        <div class="s-num">500+</div>
+        <div class="s-lbl">Orders Delivered</div>
+      </div>
+      <div class="img-stat">
+        <div class="s-num">4.9★</div>
+        <div class="s-lbl">Avg Rating</div>
+      </div>
+      <div class="img-stat">
+        <div class="s-num">1 Yr</div>
+        <div class="s-lbl">Warranty</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT — INFO PANEL -->
+  <div class="info-panel">
+    <div class="editorial-label">Premium TWS · Hyderabad</div>
+    <h1 class="p2-title">Pro Max <em>Wireless</em><br>Earbuds</h1>
+    <p class="p2-tagline">Deep bass, 30-hour battery, and crystal-clear calls — premium sound engineered for everyday life.</p>
+
+    <!-- [CHANGE 3] Live Activity -->
+    <div class="live-activity">
+      <div class="la-item">
+        <div class="la-dot"></div>
+        <div>
+          <div class="la-num" id="viewCount">47</div>
+          <div style="font-size:10px;color:var(--muted);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;">Viewing now</div>
+        </div>
+      </div>
+      <div class="la-sep"></div>
+      <div class="la-item">
+        <div>
+          <div class="la-num" id="orderCount">23</div>
+          <div style="font-size:10px;color:var(--muted);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;">Orders today</div>
+        </div>
+      </div>
+      <div class="la-sep"></div>
+      <div class="la-item">
+        <div>
+          <div class="la-num">4.9</div>
+          <div style="font-size:10px;color:var(--muted);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;">Avg rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAYMENT OPTION -->
+    <div class="opt2-label">Payment Option:</div>
+    <div class="payment-options">
+      <div class="pay-opt active" onclick="selectPayOption('advance', this)">
+        <div class="po-title">Pay ₹99 Advance</div>
+        <div class="po-sub">Rest on Delivery</div>
+      </div>
+      <div class="pay-opt" onclick="selectPayOption('full', this)">
+        <div class="po-title">Pay Full ₹1,400</div>
+        <div class="po-sub">Skip COD Process</div>
+      </div>
+    </div>
+
+    <div class="price-box2">
+      <div class="price-box2-top">
+        <div class="p2-main-price"><sup>₹</sup>1,400</div>
+        <div class="p2-old-price">₹3,499</div>
+        <div class="p2-save-chip">Save ₹2,099</div>
+      </div>
+      <div id="priceBreakdown" class="price-breakdown">
+        Pay <strong>₹99 now</strong> to confirm →
+        Remaining <strong>₹1,301 cash</strong> on delivery, after you check the product
+      </div>
+    </div>
+
+    <!-- [CHANGE 4] WHY ₹99 — simplified -->
+    <div class="why99-box">
+      <div class="why99-title">💡 How the ₹99 System Works</div>
+      <div class="why99-steps">
+        <div class="why99-step">
+          <div class="w99-icon">1</div>
+          <div>Pay <strong>₹99 now</strong> — confirms your order slot &amp; your address</div>
+        </div>
+        <div class="why99-step">
+          <div class="w99-icon">2</div>
+          <div>We call within <strong>30 minutes</strong> to confirm delivery time</div>
+        </div>
+        <div class="why99-step">
+          <div class="w99-icon">3</div>
+          <div>Delivery arrives — <strong>open &amp; fully test</strong> the product</div>
+        </div>
+        <div class="why99-step">
+          <div class="w99-icon">4</div>
+          <div>Satisfied? Pay <strong>₹1,301 cash</strong>. Not satisfied? Full ₹99 refund</div>
+        </div>
+      </div>
+      <div class="why99-refund">✅ 100% refundable if you reject — zero risk to you</div>
+    </div>
+
+    <!-- COLOR PICKER -->
+    <div class="opt2-label">Color: <span id="col2Name">White</span></div>
+    <div class="colors2">
+      <div class="col2 white2 active" style="cursor: default;" title="White"></div>
+    </div>
+
+    <!-- STOCK -->
+    <div class="stock2">
+      <div class="sdot"></div>
+      <div>
+        <span class="stock2-text">Only 7 pieces left</span>
+        <span class="stock2-sub"> · <span id="dailyViewCount">19</span> people viewed this today</span>
+      </div>
+    </div>
+
+    <!-- WARRANTY -->
+    <div class="warranty-ribbon">
+      <div class="wr-icon">🛡️</div>
+      <div class="wr-text">
+        <h4>1 Year Full Warranty — Included</h4>
+        <p>Anything fails within 12 months, we replace or fix it. No questions asked.</p>
+      </div>
+      <div class="wr-badge">1 Year<br>Warranty</div>
+    </div>
+
+    <!-- [CHANGE 4] BUTTONS -->
+    <button class="btn2-primary" id="orderBtn" onclick="handleOrder()">
+      <span>🛒 Confirm Order — Pay ₹99</span>
+      <span class="btn-right">Same Day Delivery →</span>
+    </button>
+
+
+    <!-- GUARANTEE -->
+    <div class="guarantee2">
+      <div class="g2-title">🔒 Your Complete Protection</div>
+      <div class="g2-grid">
+        <div class="g2-item"><span class="g2-check">✅</span><div><strong>Open Box Delivery</strong><br>Check before you pay</div></div>
+        <div class="g2-item"><span class="g2-check">✅</span><div><strong>Same Day Hyderabad</strong><br>Order before 2 PM</div></div>
+        <div class="g2-item"><span class="g2-check">✅</span><div><strong>₹99 Refundable</strong><br>Not happy? Full refund</div></div>
+        <div class="g2-item"><span class="g2-check">✅</span><div><strong>1 Year Warranty</strong><br>Full product coverage</div></div>
+      </div>
+    </div>
+
+    <!-- TRUST BADGES -->
+    <div class="trust2-row">
+      <div class="t2"><span class="ti">📦</span><div class="tl">Open Box<br>Delivery</div></div>
+      <div class="t2"><span class="ti">🚀</span><div class="tl">Same Day<br>Hyderabad</div></div>
+      <div class="t2"><span class="ti">🛡️</span><div class="tl">1 Year<br>Warranty</div></div>
+      <div class="t2"><span class="ti">💰</span><div class="tl">Cash on<br>Delivery</div></div>
+    </div>
+  </div>
+</div><!-- /hero -->
+
+<!-- ============================================================
+     BELOW FOLD
+     ============================================================ -->
+<div class="below-fold">
+
+  <!-- [CHANGE 2] VIDEO SECTION -->
+  <div class="section2 reveal">
+    <div class="sec2-eyebrow">See It In Action</div>
+    <div class="sec2-title">Real <em>Unboxing</em></div>
+    <p class="sec2-sub">Watch real customers test and receive their orders in Hyderabad.</p>
+    <div class="video-strip">
+      <div class="video-block">
+        <!-- Auto-playing video block. Replace src with actual video URLs. -->
+        <video autoplay muted loop playsinline poster="" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <!-- <source src="unboxing-video.mp4" type="video/mp4"> -->
+        </video>
+        <!-- Placeholder shown when no video src -->
+        <div class="video-ph" id="vh1">
+          <div class="vid-play">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <div style="font-size:12px;color:var(--muted);font-weight:600;letter-spacing:0.5px;">Unboxing Video · Hyderabad</div>
+        </div>
+        <div class="video-overlay">
+          <div class="video-caption">📦 Customer Unboxing — Open Box Delivery</div>
+        </div>
+      </div>
+      <div class="video-block">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
+          <!-- <source src="sound-demo.mp4" type="video/mp4"> -->
+        </video>
+        <div class="video-ph" id="vh2">
+          <div class="vid-play">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <div style="font-size:12px;color:var(--muted);font-weight:600;letter-spacing:0.5px;">Sound Demo · Bass Test</div>
+        </div>
+        <div class="video-overlay">
+          <div class="video-caption">🎵 Deep Bass Sound Demo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- [CHANGE 5] FEATURES — only 4 -->
+  <div class="section2 reveal">
+    <div class="sec2-eyebrow">Why Choose This</div>
+    <div class="sec2-title">Built for <em>Real Life</em></div>
+    <p class="sec2-sub">Four features that actually matter to your daily life.</p>
+    <div class="feat2-grid">
+      <div class="feat2">
+        <span class="feat2-icon">🎵</span>
+        <div class="feat2-title">Deep Bass Sound</div>
+        <div class="feat2-desc">Custom dynamic drivers deliver rich, punchy bass and crystal-clear highs. Sounds better than earphones at 3× the price.</div>
+      </div>
+      <div class="feat2">
+        <span class="feat2-icon">🔋</span>
+        <div class="feat2-title">30-Hour Battery</div>
+        <div class="feat2-desc">8 hours in earbuds + 22 in the case. Survive your full workday, gym, and commute without touching the charger.</div>
+      </div>
+      <div class="feat2">
+        <span class="feat2-icon">📞</span>
+        <div class="feat2-title">Crystal-Clear Calls</div>
+        <div class="feat2-desc">Dual mic with noise reduction makes your voice perfectly clear — even on busy streets or inside a moving vehicle.</div>
+      </div>
+      <div class="feat2">
+        <span class="feat2-icon">⚡</span>
+        <div class="feat2-title">15-Min Fast Charge</div>
+        <div class="feat2-desc">15 minutes of USB-C charging gives you 3 hours of playback. Never miss your music because of a dead battery again.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPECS -->
+  <div class="section2 reveal">
+    <div class="sec2-eyebrow">Technical Details</div>
+    <div class="sec2-title">Full <em>Specifications</em></div>
+    <p class="sec2-sub">Everything you need to know before buying.</p>
+    <div class="specs2-layout">
+      <div class="spec2-table">
+        <div class="spec2-row"><span class="sk">Bluetooth</span><span class="sv">v5.3</span></div>
+        <div class="spec2-row"><span class="sk">Earbud Battery</span><span class="sv">Up to 8 Hours</span></div>
+        <div class="spec2-row"><span class="sk">Total Battery</span><span class="sv">30 Hours</span></div>
+        <div class="spec2-row"><span class="sk">Charging Port</span><span class="sv">USB-C Fast Charge</span></div>
+        <div class="spec2-row"><span class="sk">Wireless Range</span><span class="sv">Up to 10m</span></div>
+        <div class="spec2-row"><span class="sk">Microphone</span><span class="sv">Dual Noise Reduction</span></div>
+        <div class="spec2-row"><span class="sk">Water Rating</span><span class="sv">IPX4 Sweat Proof</span></div>
+        <div class="spec2-row"><span class="sk">Colors</span><span class="sv">White</span></div>
+        <div class="spec2-row"><span class="sk">Compatibility</span><span class="sv">iOS + Android + PC</span></div>
+        <div class="spec2-row"><span class="sk">Warranty</span><span class="sv" style="color:var(--green);">1 Full Year ✓</span></div>
+      </div>
+      <div class="spec2-visual">
+        <!-- [CHANGE 6] SVG product illustration for spec section -->
+        <svg class="spec-big-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Charging case illustration -->
+          <rect x="20" y="70" width="180" height="120" rx="60" fill="#111" stroke="#222" stroke-width="2"/>
+          <rect x="20" y="70" width="180" height="60" rx="30" fill="#151515" stroke="#282828" stroke-width="1.5"/>
+          <!-- Left earbud slot -->
+          <ellipse cx="75" cy="110" rx="26" ry="36" fill="#0d0d0d" stroke="#2a2a2a" stroke-width="1.5"/>
+          <circle cx="75" cy="110" r="10" fill="#181818"/>
+          <circle cx="75" cy="110" r="4" fill="#1f1f1f" stroke="#e8c97a" stroke-width="0.5"/>
+          <!-- Right earbud slot -->
+          <ellipse cx="145" cy="110" rx="26" ry="36" fill="#0d0d0d" stroke="#2a2a2a" stroke-width="1.5"/>
+          <circle cx="145" cy="110" r="10" fill="#181818"/>
+          <circle cx="145" cy="110" r="4" fill="#1f1f1f" stroke="#e8c97a" stroke-width="0.5"/>
+          <!-- LED indicator -->
+          <circle cx="110" cy="176" r="4" fill="#e8c97a" opacity="0.8"/>
+          <!-- USB-C port -->
+          <rect x="97" y="183" width="26" height="6" rx="3" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+          <!-- Top hinge line -->
+          <line x1="50" y1="130" x2="170" y2="130" stroke="#1e1e1e" stroke-width="1.5"/>
+          <!-- Brand text -->
+          <text x="110" y="58" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="#e8c97a" opacity="0.6" letter-spacing="3">ZYBUDS</text>
+        </svg>
+        <div class="spec-bullets">
+          <div class="spec-bullet"><div class="sb-dot"></div>IPX4 Sweat &amp; Splash Proof</div>
+          <div class="spec-bullet"><div class="sb-dot"></div>Bluetooth 5.3 — Stable Signal</div>
+          <div class="spec-bullet"><div class="sb-dot"></div>USB-C Fast Charging Case</div>
+          <div class="spec-bullet"><div class="sb-dot"></div>1 Year Full Seller Warranty</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOX CONTENTS -->
+  <div class="section2 reveal">
+    <div class="sec2-eyebrow">In The Box</div>
+    <div class="sec2-title">Everything <em>Included</em></div>
+    <p class="sec2-sub">Unbox and start listening immediately — nothing extra to buy.</p>
+    <div class="box2-grid">
+      <div class="box2-item"><span class="box2-em">🎧</span><div class="box2-name">Pro Max Earbuds</div><div class="box2-qty">× 1 Pair</div></div>
+      <div class="box2-item"><span class="box2-em">📦</span><div class="box2-name">Charging Case</div><div class="box2-qty">× 1</div></div>
+      <div class="box2-item"><span class="box2-em">🔌</span><div class="box2-name">USB-C Cable</div><div class="box2-qty">× 1</div></div>
+      <div class="box2-item"><span class="box2-em">📄</span><div class="box2-name">Warranty Card</div><div class="box2-qty">× 1</div></div>
+    </div>
+  </div>
+
+  <!-- [CHANGE 7] REVIEWS — all English -->
+  <div class="section2 reveal">
+    <div class="sec2-eyebrow">Customer Reviews</div>
+    <div class="sec2-title">Hyderabad <em>Speaks</em></div>
+    <p class="sec2-sub">Real orders. Real deliveries. Real people across our city.</p>
+
+    <div class="reviews2-header">
+      <div class="big-score">
+        <div class="big-score-num">4.9</div>
+        <div class="big-score-stars">★★★★★</div>
+        <div class="big-score-lbl">214 verified reviews</div>
+      </div>
+      <div class="rbars2">
+        <div class="rb2row"><span class="rb2lbl">5★</span><div class="rb2track"><div class="rb2fill" style="width:88%"></div></div><span class="rb2count">188</span></div>
+        <div class="rb2row"><span class="rb2lbl">4★</span><div class="rb2track"><div class="rb2fill" style="width:9%"></div></div><span class="rb2count">19</span></div>
+        <div class="rb2row"><span class="rb2lbl">3★</span><div class="rb2track"><div class="rb2fill" style="width:2%"></div></div><span class="rb2count">5</span></div>
+        <div class="rb2row"><span class="rb2lbl">2★</span><div class="rb2track"><div class="rb2fill" style="width:1%"></div></div><span class="rb2count">2</span></div>
+        <div class="rb2row"><span class="rb2lbl">1★</span><div class="rb2track"><div class="rb2fill" style="width:0%"></div></div><span class="rb2count">0</span></div>
+      </div>
+    </div>
+
+    <div class="reviews2-grid">
+      <!-- [CHANGE 7] All English reviews -->
+      <div class="rev2">
+        <div class="rev2-top">
+          <div class="rev2-av" style="background:linear-gradient(135deg,#c8410a,#e85d1a);">R</div>
+          <div><div class="rev2-name">Ravi Kumar</div><div class="rev2-loc">📍 Ameerpet, Hyderabad</div></div>
+        </div>
+        <div class="rev2-stars">★★★★★</div>
+        <div class="rev2-text">I was skeptical about the ₹99 advance at first, but it all made perfect sense once explained. The product arrived quickly, I tested it on the spot before paying, and the bass quality is genuinely impressive. Highly recommend!</div>
+        <div class="rev2-verified">✓ Verified Purchase</div>
+        <div class="rev2-date">4 days ago</div>
+      </div>
+      <div class="rev2">
+        <div class="rev2-top">
+          <div class="rev2-av" style="background:linear-gradient(135deg,#1565c0,#42a5f5);">P</div>
+          <div><div class="rev2-name">Priya Reddy</div><div class="rev2-loc">📍 Madhapur, Hyderabad</div></div>
+        </div>
+        <div class="rev2-stars">★★★★★</div>
+        <div class="rev2-text">Ordered at 10 AM, delivered by 2 PM — genuinely same day! The sound quality blew me away. Tested everything before paying, the delivery person waited patiently. The 1-year warranty gave me extra confidence to buy.</div>
+        <div class="rev2-verified">✓ Verified Purchase</div>
+        <div class="rev2-date">1 week ago</div>
+      </div>
+      <div class="rev2">
+        <div class="rev2-top">
+          <div class="rev2-av" style="background:linear-gradient(135deg,#1a7a3c,#4caf50);">S</div>
+          <div><div class="rev2-name">Sai Teja</div><div class="rev2-loc">📍 LB Nagar, Hyderabad</div></div>
+        </div>
+        <div class="rev2-stars">★★★★★</div>
+        <div class="rev2-text">This is my third order from Zybuds — smartwatch, power bank, now earbuds. Every single time: same day delivery, open box, everything working perfectly. The warranty coverage is a game-changer at this price point.</div>
+        <div class="rev2-verified">✓ Verified Purchase</div>
+        <div class="rev2-date">2 weeks ago</div>
+      </div>
+      <div class="rev2">
+        <div class="rev2-top">
+          <div class="rev2-av" style="background:linear-gradient(135deg,#6a1b9a,#ab47bc);">A</div>
+          <div><div class="rev2-name">Ananya Singh</div><div class="rev2-loc">📍 Begumpet, Hyderabad</div></div>
+        </div>
+        <div class="rev2-stars">★★★★★</div>
+        <div class="rev2-text">Sound quality exceeded my expectations completely. The call mic is super clear — even tested it while riding an auto. The ₹99 system is actually clever and fair. Will definitely order again for my sister too.</div>
+        <div class="rev2-verified">✓ Verified Purchase</div>
+        <div class="rev2-date">3 weeks ago</div>
+      </div>
+      <div class="rev2">
+        <div class="rev2-top">
+          <div class="rev2-av" style="background:linear-gradient(135deg,#e53935,#ef9a9a);">M</div>
+          <div><div class="rev2-name">Mohammed Farhan</div><div class="rev2-loc">📍 Dilsukhnagar, Hyderabad</div></div>
+        </div>
+        <div class="rev2-stars">★★★★★</div>
+        <div class="rev2-text">Saw this on Instagram and honestly expected it to be fake. But the open box delivery and 1-year warranty changed my mind. Everything is exactly as described. This is a real local Hyderabad business — fully trustworthy.</div>
+        <div class="rev2-verified">✓ Verified Purchase</div>
+        <div class="rev2-date">1 month ago</div>
+      </div>
+      <div class="rev2">
+        <div class="rev2-top">
+          <div class="rev2-av" style="background:linear-gradient(135deg,#00838f,#4dd0e1);">D</div>
+          <div><div class="rev2-name">Deepika Rao</div><div class="rev2-loc">📍 Kondapur, Hyderabad</div></div>
+        </div>
+        <div class="rev2-stars">★★★★★</div>
+        <div class="rev2-text">Bought this as a gift for my husband — he is absolutely in love with it. Paired with his Samsung in seconds. Battery easily lasts his full work day. Knowing there's a 1-year warranty made it a completely stress-free purchase. ❤️</div>
+        <div class="rev2-verified">✓ Verified Purchase</div>
+        <div class="rev2-date">1 month ago</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section2 reveal">
+    <div class="sec2-eyebrow">Got Questions?</div>
+    <div class="sec2-title">Frequently <em>Asked</em></div>
+    <p class="sec2-sub">Honest answers — no fine print, no hidden surprises.</p>
+    <div class="faq2-list">
+      <div class="faq2-item open">
+        <div class="faq2-q" onclick="toggleFaq2(this)">
+          Why do you ask for ₹99 in advance? Is it safe?
+          <div class="faq2-arr">+</div>
+        </div>
+        <div class="faq2-a">The ₹99 prevents fake orders — in the past, unverified customers placed orders then didn't open the door, wasting our delivery team's time. It's NOT part of the product price. It's 100% refundable if you reject. If you accept, it adjusts in your final ₹1,301 cash payment on delivery.</div>
+      </div>
+      <div class="faq2-item">
+        <div class="faq2-q" onclick="toggleFaq2(this)">
+          What exactly is open box delivery?
+          <div class="faq2-arr">+</div>
+        </div>
+        <div class="faq2-a">Our delivery partner waits while you fully unbox and test the product. Connect to your phone, test sound, check mic, test the charging case — everything. Only when you're satisfied do you pay the remaining cash. If anything's wrong, send it back immediately. Zero risk.</div>
+      </div>
+      <div class="faq2-item">
+        <div class="faq2-q" onclick="toggleFaq2(this)">
+          What does the 1 Year Warranty cover?
+          <div class="faq2-arr">+</div>
+        </div>
+        <div class="faq2-a">Our 1 Year Seller Warranty covers all manufacturing defects — if earbuds stop working, charging fails, or sound drops within 12 months, we replace or repair. Just WhatsApp us with a video of the issue. Personal promise from our founder — we stand behind every product we sell.</div>
+      </div>
+      <div class="faq2-item">
+        <div class="faq2-q" onclick="toggleFaq2(this)">
+          How fast is delivery? Which areas do you cover?
+          <div class="faq2-arr">+</div>
+        </div>
+        <div class="faq2-a">Order before 2 PM — delivered same day. Order after 2 PM — delivered next morning. We cover all of Hyderabad: Secunderabad, Ameerpet, LB Nagar, Dilsukhnagar, Kondapur, Madhapur, Begumpet, Uppal, Himayatnagar, SR Nagar, Tarnaka, and more.</div>
+      </div>
+      <div class="faq2-item">
+        <div class="faq2-q" onclick="toggleFaq2(this)">
+          Who is Zybuds? Are you a real business?
+          <div class="faq2-arr">+</div>
+        </div>
+        <div class="faq2-a">100% real. Zybuds is based in Secunderabad, Telangana Street, Hyderabad. We have 500+ completed orders across the city. You can find our delivery videos and unboxings on Instagram. We respond immediately. Our founder personally handles every warranty issue.</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /below-fold -->
+
+<!-- FOUNDER SECTION [CHANGE 8] -->
+<div style="max-width:1440px;margin:0 auto;padding:0 5%;">
+  <div class="founder2 reveal">
+    <div class="founder2-av">M</div>
+    <div class="founder2-content">
+      <div class="founder2-eyebrow">A Message From Our Founder</div>
+      <div class="founder2-title">Hi, I'm Mahesh.<br>I run Zybuds from Secunderabad.</div>
+      <div class="founder2-text">
+        I started Zybuds because too many people in Hyderabad were overpaying for gadgets online — with nobody to call when things went wrong. Every product we sell is personally tested at our Telangana Street godown before it leaves. I built the open box delivery system so you never take any risk. The 1-year warranty exists because I believe in what we sell. If you ever have a problem — contact me directly. Not a chatbot. Me. I will personally make sure you're happy.
+      </div>
+      <div class="founder2-meta">
+        <div class="f2-chip">👤 Mahesh, Founder</div>
+        <div class="f2-chip">📍 Telangana Street, Secunderabad</div>
+        <div class="f2-chip">🏙️ Hyderabad, Telangana</div>
+        <div class="f2-chip">🛡️ 1 Year Warranty on All Products</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER [CHANGE 8 — Zybuds] -->
+<footer>
+  <div class="footer2-inner">
+    <div class="f2-brand">
+      <a href="#" class="logo" style="text-decoration: none; margin-bottom: 12px;">
+        <div class="logo-main" style="font-size: 22px;">Zybuds</div>
+        <div class="logo-sub" style="font-size: 6px;">Trendy Accessories</div>
+      </a>
+      <p>Hyderabad's trusted local audio brand. Same-day delivery, open box, COD. Based in Secunderabad since 2024.</p>
+    </div>
+    <div class="f2-col">
+      <h4>Products</h4>
+      <a href="#">Earbuds</a>
+      <a href="#">Smartwatches</a>
+      <a href="#">Power Banks</a>
+      <a href="#">Neckbands</a>
+    </div>
+    <div class="f2-col">
+      <h4>Support</h4>
+      <a href="#">Contact Us</a>
+      <a href="#">Warranty Claim</a>
+      <a href="#">Return Policy</a>
+      <a href="#">FAQ</a>
+    </div>
+    <div class="f2-col">
+      <h4>About</h4>
+      <a href="#">Our Story</a>
+      <a href="#">Instagram</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer2-bottom">
+    <div>© 2025 Zybuds · Telangana Street, Secunderabad, Hyderabad</div>
+    <div>📦 Open Box · 🚀 Same Day · 🛡️ 1 Yr Warranty · 💰 COD</div>
+  </div>
+</footer>
+
+<!-- [CHANGE 9] MOBILE STICKY BAR -->
+<div class="mob-bar">
+  <div class="mob-price-wrap">
+    <div class="mob-price-main">₹1,400</div>
+    <div class="mob-price-old">MRP ₹3,499</div>
+  </div>
+  <button class="mob-order" onclick="handleOrder()">Pay ₹99 → Confirm</button>
+</div>
+
+
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* [CHANGE 11] Popup notification on load */
+(function() {
+  const popup = document.getElementById('notifPopup');
+  const orderCountVal = Math.floor(Math.random() * (42 - 18 + 1)) + 18;
+  const msgs = [
+    `🔥 ${orderCountVal} people ordered today`,
+    '📦 7 orders delivered this morning',
+    '⚡ 3 people just viewed this product',
+    '✅ 500+ orders completed in Hyderabad'
+  ];
+  let idx = 0;
+  function showNotif() {
+    popup.querySelector('#notifText').textContent = msgs[idx].slice(2); // strip emoji, keep in span
+    popup.innerHTML = `<div class="notif-dot"></div> ${msgs[idx]}`;
+    popup.classList.add('show');
+    setTimeout(() => {
+      popup.classList.remove('show');
+      idx = (idx + 1) % msgs.length;
+      setTimeout(showNotif, 4000); // show next after 4s hidden
+    }, 3500);
+  }
+  setTimeout(showNotif, 1200);
+})();
+
+/* [CHANGE 3] Animated activity counters */
+function animateCounter(el, start, end, duration) {
+  let startTime = null;
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    el.textContent = Math.floor(progress * (end - start) + start);
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+window.addEventListener('load', () => {
+  const finalOrders = Math.floor(Math.random() * (42 - 18 + 1)) + 18;
+  animateCounter(document.getElementById('viewCount'), 30, 47, 1800);
+  animateCounter(document.getElementById('orderCount'), 10, finalOrders, 2200);
+});
+/* Fluctuate viewer count every ~8 seconds */
+setInterval(() => {
+  const el = document.getElementById('viewCount');
+  const curr = parseInt(el.textContent);
+  const delta = Math.random() > 0.5 ? Math.floor(Math.random() * 3) : -Math.floor(Math.random() * 2);
+  const next = Math.max(38, Math.min(62, curr + delta));
+  animateCounter(el, curr, next, 1000);
+}, 8000);
+
+/* [NEW] Increase daily viewed count every 5 seconds (Only increases) */
+setInterval(() => {
+  const el = document.getElementById('dailyViewCount');
+  const curr = parseInt(el.textContent);
+  // Only increase by 0 or 1 to keep it realistic
+  const delta = Math.random() > 0.7 ? 1 : 0;
+  if (delta > 0) {
+    el.textContent = curr + delta;
+  }
+}, 5000);
+
+/* [CHANGE 6] Thumbnail switcher */
+const svgViews = {
+  earbuds: `<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" class="earbuds-svg">
+    <g transform="translate(50,80)">
+      <ellipse cx="55" cy="110" rx="38" ry="52" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="2"/>
+      <ellipse cx="55" cy="110" rx="28" ry="40" fill="#141414"/>
+      <circle cx="55" cy="110" r="16" fill="#0a0a0a" stroke="#333" stroke-width="1.5"/>
+      <circle cx="55" cy="110" r="8" fill="#1c1c1c"/>
+      <ellipse cx="55" cy="65" rx="14" ry="28" fill="#222" stroke="#2e2e2e" stroke-width="1.5"/>
+      <circle cx="49" cy="108" r="1.5" fill="#333"/><circle cx="55" cy="105" r="1.5" fill="#333"/>
+      <circle cx="61" cy="108" r="1.5" fill="#333"/><circle cx="55" cy="113" r="1.5" fill="#333"/>
+      <circle cx="55" cy="110" r="21" fill="none" stroke="#e8c97a" stroke-width="0.8" opacity="0.6"/>
+    </g>
+    <g transform="translate(155,80)">
+      <ellipse cx="55" cy="110" rx="38" ry="52" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="2"/>
+      <ellipse cx="55" cy="110" rx="28" ry="40" fill="#141414"/>
+      <circle cx="55" cy="110" r="16" fill="#0a0a0a" stroke="#333" stroke-width="1.5"/>
+      <circle cx="55" cy="110" r="8" fill="#1c1c1c"/>
+      <ellipse cx="55" cy="65" rx="14" ry="28" fill="#222" stroke="#2e2e2e" stroke-width="1.5"/>
+      <circle cx="49" cy="108" r="1.5" fill="#333"/><circle cx="55" cy="105" r="1.5" fill="#333"/>
+      <circle cx="61" cy="108" r="1.5" fill="#333"/><circle cx="55" cy="113" r="1.5" fill="#333"/>
+      <circle cx="55" cy="110" r="21" fill="none" stroke="#e8c97a" stroke-width="0.8" opacity="0.6"/>
+    </g>
+    <rect x="88" y="250" width="124" height="34" rx="17" fill="#181818" stroke="#282828" stroke-width="1.5"/>
+    <line x1="148" y1="260" x2="154" y2="260" stroke="#e8c97a" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>`,
+  case: `<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" class="earbuds-svg">
+    <rect x="50" y="80" width="200" height="140" rx="70" fill="#111" stroke="#222" stroke-width="2"/>
+    <rect x="50" y="80" width="200" height="70" rx="35" fill="#151515" stroke="#282828" stroke-width="1.5"/>
+    <ellipse cx="110" cy="130" rx="30" ry="42" fill="#0d0d0d" stroke="#2a2a2a" stroke-width="1.5"/>
+    <circle cx="110" cy="130" r="12" fill="#181818"/>
+    <circle cx="110" cy="130" r="5" fill="#1f1f1f" stroke="#e8c97a" stroke-width="0.5"/>
+    <ellipse cx="190" cy="130" rx="30" ry="42" fill="#0d0d0d" stroke="#2a2a2a" stroke-width="1.5"/>
+    <circle cx="190" cy="130" r="12" fill="#181818"/>
+    <circle cx="190" cy="130" r="5" fill="#1f1f1f" stroke="#e8c97a" stroke-width="0.5"/>
+    <circle cx="150" cy="200" r="5" fill="#e8c97a" opacity="0.8"/>
+    <rect x="136" y="207" width="28" height="7" rx="3.5" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+    <text x="150" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="#e8c97a" opacity="0.5" letter-spacing="4">ZYBUDS</text>
+  </svg>`,
+  side: `<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" class="earbuds-svg">
+    <ellipse cx="150" cy="170" rx="44" ry="62" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="2"/>
+    <ellipse cx="150" cy="170" rx="32" ry="48" fill="#141414"/>
+    <circle cx="150" cy="170" r="18" fill="#0a0a0a" stroke="#333" stroke-width="1.5"/>
+    <circle cx="150" cy="170" r="9" fill="#1c1c1c"/>
+    <circle cx="150" cy="170" r="24" fill="none" stroke="#e8c97a" stroke-width="0.7" opacity="0.5"/>
+    <ellipse cx="150" cy="105" rx="16" ry="32" fill="#222" stroke="#2e2e2e" stroke-width="1.5"/>
+    <circle cx="143" cy="168" r="1.8" fill="#333"/><circle cx="150" cy="164" r="1.8" fill="#333"/>
+    <circle cx="157" cy="168" r="1.8" fill="#333"/><circle cx="150" cy="175" r="1.8" fill="#333"/>
+  </svg>`,
+  cable: `<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" class="earbuds-svg">
+    <rect x="128" y="60" width="44" height="60" rx="10" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="1.5"/>
+    <rect x="136" y="56" width="28" height="8" rx="2" fill="#111" stroke="#333" stroke-width="1"/>
+    <rect x="144" y="64" width="12" height="30" rx="2" fill="#e8c97a" opacity="0.3"/>
+    <path d="M150 120 Q120 160 150 200 Q180 240 150 280" fill="none" stroke="#2a2a2a" stroke-width="6" stroke-linecap="round"/>
+    <path d="M150 120 Q120 160 150 200 Q180 240 150 280" fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
+    <rect x="136" y="276" width="28" height="14" rx="4" fill="#1a1a1a" stroke="#e8c97a" stroke-width="1"/>
+    <rect x="143" y="280" width="14" height="6" rx="1.5" fill="#111" stroke="#555" stroke-width="0.5"/>
+    <text x="150" y="155" text-anchor="middle" font-size="10" fill="#e8c97a" opacity="0.5" font-family="monospace">USB-C</text>
+  </svg>`
+};
+
+function switchView(type, el) {
+  const wrap = document.getElementById('productImgWrap');
+  wrap.style.opacity = '0';
+  wrap.style.transform = 'scale(0.92)';
+  setTimeout(() => {
+    wrap.innerHTML = `<div class="product-placeholder">${svgViews[type]}</div>`;
+    wrap.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+    wrap.style.opacity = '1';
+    wrap.style.transform = 'scale(1)';
+  }, 200);
+  document.querySelectorAll('.thumb2').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+/* Color picker */
+function pickCol2(name, el) {
+  document.getElementById('col2Name').textContent = name;
+  document.querySelectorAll('.col2').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+}
+
+/* FAQ toggle */
+function toggleFaq2(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq2-item').forEach(f => f.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+let selectedPayment = 'advance';
+
+function selectPayOption(type, el) {
+  selectedPayment = type;
+  document.querySelectorAll('.pay-opt').forEach(opt => opt.classList.remove('active'));
+  el.classList.add('active');
+  
+  const breakdown = document.getElementById('priceBreakdown');
+  const btn = document.getElementById('orderBtn');
+  
+  if (type === 'full') {
+    breakdown.innerHTML = `You are paying <strong>₹1,400 in full</strong> upfront. No additional payment needed on delivery.`;
+    btn.querySelector('span:first-child').textContent = '🛒 Confirm Order — Pay ₹1,400';
+  } else {
+    breakdown.innerHTML = `Pay <strong>₹99 now</strong> to confirm → Remaining <strong>₹1,301 cash</strong> on delivery, after you check the product`;
+    btn.querySelector('span:first-child').textContent = '🛒 Confirm Order — Pay ₹99';
+  }
+}
+
+/* Order handler */
+function handleOrder() {
+  const amt = selectedPayment === 'full' ? '₹1,400 (Full Amount)' : '₹99 (Advance)';
+  alert(`✅ Order Confirmed!\n\nPayment Mode: ${amt}\n\nOur team will call you within 30 minutes.\nSame-day delivery from Secunderabad to your door.\n\n📍 Zybuds — Telangana Street, Secunderabad`);
+}
+
+
+
+/* Scroll reveal */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('shown'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* Video placeholder: hide placeholder div if video actually loads */
+document.querySelectorAll('.video-block video').forEach((vid, i) => {
+  vid.addEventListener('loadeddata', () => {
+    const ph = document.getElementById('vh' + (i+1));
+    if (ph) ph.style.display = 'none';
+  });
+});
+</script>
+</body>
+</html>

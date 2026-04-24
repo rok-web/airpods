@@ -703,6 +703,13 @@ nav {
   margin-bottom: 6px;
 }
 .sec2-title em { color: var(--accent); font-style: italic; }
+.section2-video {
+  padding: 80px 5%;
+  background: radial-gradient(circle at top right, rgba(232,201,122,0.05), transparent 40%),
+              radial-gradient(circle at bottom left, rgba(232,201,122,0.03), transparent 30%);
+  border-top: 1px solid var(--border);
+  margin: 0 -5.5%; /* break out of container padding to be full width if needed, or keep it inside */
+}
 .sec2-sub {
   font-size: 14px; color: var(--muted);
   margin-bottom: 36px; max-width: 460px;
@@ -1295,8 +1302,8 @@ footer {
   <!-- RIGHT — INFO PANEL -->
   <div class="info-panel">
     <div class="editorial-label">Premium TWS · Hyderabad</div>
-    <h1 class="p2-title">Pro Max <em>Wireless</em><br>Earbuds</h1>
-    <p class="p2-tagline">Deep bass, 30-hour battery, and crystal-clear calls — premium sound engineered for everyday life.</p>
+    <h1 class="p2-title">Zybuds AirPods Pro 2 <em>with ANC</em></h1>
+    <p class="p2-tagline">3D Spatial Audio, GPS Tracking, and 13mm Drivers — premium sound with Active Noise Cancellation engineered for everyday life.</p>
 
     <!-- [CHANGE 3] Live Activity -->
     <div class="live-activity">
@@ -1348,13 +1355,16 @@ footer {
       </div>
     </div>
 
-    <!-- [CHANGE 4] WHY ₹99 — simplified -->
+    <!-- WHY ₹99 -->
     <div class="why99-box">
-      <div class="why99-title">💡 How the ₹99 System Works</div>
+      <div class="why99-title">💡 Why do we ask for ₹99?</div>
+      <div style="font-size: 13px; color: var(--ink2); line-height: 1.5; margin-bottom: 14px;">
+        In the past, unverified customers placed fake orders for "timepass" — our delivery team would travel across Hyderabad, and the customer wouldn't answer the door. This wasted a lot of time and money. Genuine customers pay ₹99 to confirm they are real. <strong>₹99 is NOT extra</strong> — it is deducted from your final ₹1,400 bill.
+      </div>
       <div class="why99-steps">
         <div class="why99-step">
           <div class="w99-icon">1</div>
-          <div>Pay <strong>₹99 now</strong> — confirms your order slot &amp; your address</div>
+          <div><strong>Pay ₹99 now</strong> — confirms you're genuine & filters fake orders</div>
         </div>
         <div class="why99-step">
           <div class="w99-icon">2</div>
@@ -1362,14 +1372,16 @@ footer {
         </div>
         <div class="why99-step">
           <div class="w99-icon">3</div>
-          <div>Delivery arrives — <strong>open &amp; fully test</strong> the product</div>
+          <div>Delivery arrives — <strong>open & fully check</strong> the product first</div>
         </div>
         <div class="why99-step">
           <div class="w99-icon">4</div>
-          <div>Satisfied? Pay <strong>₹1,301 cash</strong>. Not satisfied? Full ₹99 refund</div>
+          <div>Happy? Pay <strong>₹1,301 cash</strong>. Not satisfied? Full ₹99 refund</div>
         </div>
       </div>
-      <div class="why99-refund">✅ 100% refundable if you reject — zero risk to you</div>
+      <div class="why99-refund" style="border-top-color: rgba(232,201,122,0.3); margin-top: 14px; padding-top: 12px;">
+        ✅ Not satisfied? We take the product back. Full ₹99 refunded. No questions, no drama.
+      </div>
     </div>
 
     <!-- COLOR PICKER -->
@@ -1431,7 +1443,7 @@ footer {
 <div class="below-fold">
 
   <!-- [CHANGE 2] VIDEO SECTION -->
-  <div class="section2 reveal">
+  <div class="section2 section2-video reveal">
     <div class="sec2-eyebrow">See It In Action</div>
     <div class="sec2-title">Real <em>Unboxing</em></div>
     <p class="sec2-sub">Watch real customers test and receive their orders in Hyderabad.</p>
@@ -1476,24 +1488,24 @@ footer {
     <p class="sec2-sub">Four features that actually matter to your daily life.</p>
     <div class="feat2-grid">
       <div class="feat2">
-        <span class="feat2-icon">🎵</span>
-        <div class="feat2-title">Deep Bass Sound</div>
-        <div class="feat2-desc">Custom dynamic drivers deliver rich, punchy bass and crystal-clear highs. Sounds better than earphones at 3× the price.</div>
+        <span class="feat2-icon">🔇</span>
+        <div class="feat2-title">Active Noise Cancellation</div>
+        <div class="feat2-desc">Block out the Hyderabad traffic. Advanced ANC technology filters background noise so you can focus on your music.</div>
       </div>
       <div class="feat2">
         <span class="feat2-icon">🔋</span>
-        <div class="feat2-title">30-Hour Battery</div>
-        <div class="feat2-desc">8 hours in earbuds + 22 in the case. Survive your full workday, gym, and commute without touching the charger.</div>
+        <div class="feat2-title">40-Hour Total Battery</div>
+        <div class="feat2-desc">8 hours in earbuds + 32 hours in the case. Survive your full week of commute without touching the charger.</div>
       </div>
       <div class="feat2">
-        <span class="feat2-icon">📞</span>
-        <div class="feat2-title">Crystal-Clear Calls</div>
-        <div class="feat2-desc">Dual mic with noise reduction makes your voice perfectly clear — even on busy streets or inside a moving vehicle.</div>
+        <span class="feat2-icon">🎧</span>
+        <div class="feat2-title">3D Spatial Audio</div>
+        <div class="feat2-desc">Experience sound like it's coming from all around you. Immersive 360-degree audio for movies and music.</div>
       </div>
       <div class="feat2">
-        <span class="feat2-icon">⚡</span>
-        <div class="feat2-title">15-Min Fast Charge</div>
-        <div class="feat2-desc">15 minutes of USB-C charging gives you 3 hours of playback. Never miss your music because of a dead battery again.</div>
+        <span class="feat2-icon">📍</span>
+        <div class="feat2-title">Find My Device (GPS)</div>
+        <div class="feat2-desc">Never lose your AirPods again. Integrated GPS tracking works with Find My apps to pinpoint your earbuds' location.</div>
       </div>
     </div>
   </div>
@@ -1505,11 +1517,11 @@ footer {
     <p class="sec2-sub">Everything you need to know before buying.</p>
     <div class="specs2-layout">
       <div class="spec2-table">
-        <div class="spec2-row"><span class="sk">Bluetooth</span><span class="sv">v5.3</span></div>
-        <div class="spec2-row"><span class="sk">Earbud Battery</span><span class="sv">Up to 8 Hours</span></div>
-        <div class="spec2-row"><span class="sk">Total Battery</span><span class="sv">30 Hours</span></div>
-        <div class="spec2-row"><span class="sk">Charging Port</span><span class="sv">USB-C Fast Charge</span></div>
-        <div class="spec2-row"><span class="sk">Wireless Range</span><span class="sv">Up to 10m</span></div>
+        <div class="spec2-row"><span class="sk">Features</span><span class="sv">ANC + GPS Tracking</span></div>
+        <div class="spec2-row"><span class="sk">Drivers</span><span class="sv">13mm Pro Drivers</span></div>
+        <div class="spec2-row"><span class="sk">Earbud Battery</span><span class="sv">8 Hours</span></div>
+        <div class="spec2-row"><span class="sk">Case Battery</span><span class="sv">32 Hours</span></div>
+        <div class="spec2-row"><span class="sk">Total Battery</span><span class="sv">40 Hours</span></div>
         <div class="spec2-row"><span class="sk">Microphone</span><span class="sv">Dual Noise Reduction</span></div>
         <div class="spec2-row"><span class="sk">Water Rating</span><span class="sv">IPX4 Sweat Proof</span></div>
         <div class="spec2-row"><span class="sk">Colors</span><span class="sv">White</span></div>
@@ -1540,10 +1552,10 @@ footer {
           <text x="110" y="58" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="#e8c97a" opacity="0.6" letter-spacing="3">ZYBUDS</text>
         </svg>
         <div class="spec-bullets">
-          <div class="spec-bullet"><div class="sb-dot"></div>IPX4 Sweat &amp; Splash Proof</div>
-          <div class="spec-bullet"><div class="sb-dot"></div>Bluetooth 5.3 — Stable Signal</div>
-          <div class="spec-bullet"><div class="sb-dot"></div>USB-C Fast Charging Case</div>
-          <div class="spec-bullet"><div class="sb-dot"></div>1 Year Full Seller Warranty</div>
+          <div class="spec-bullet"><div class="sb-dot"></div>Real Working Pop-up</div>
+          <div class="spec-bullet"><div class="sb-dot"></div>Active Noise Cancellation</div>
+          <div class="spec-bullet"><div class="sb-dot"></div>GPS / Find My Device</div>
+          <div class="spec-bullet"><div class="sb-dot"></div>13mm Hi-Fi Audio Drivers</div>
         </div>
       </div>
     </div>
@@ -1555,7 +1567,7 @@ footer {
     <div class="sec2-title">Everything <em>Included</em></div>
     <p class="sec2-sub">Unbox and start listening immediately — nothing extra to buy.</p>
     <div class="box2-grid">
-      <div class="box2-item"><span class="box2-em">🎧</span><div class="box2-name">Pro Max Earbuds</div><div class="box2-qty">× 1 Pair</div></div>
+      <div class="box2-item"><span class="box2-em">🎧</span><div class="box2-name">Zybuds AirPods Pro 2</div><div class="box2-qty">× 1 Pair</div></div>
       <div class="box2-item"><span class="box2-em">📦</span><div class="box2-name">Charging Case</div><div class="box2-qty">× 1</div></div>
       <div class="box2-item"><span class="box2-em">🔌</span><div class="box2-name">USB-C Cable</div><div class="box2-qty">× 1</div></div>
       <div class="box2-item"><span class="box2-em">📄</span><div class="box2-name">Warranty Card</div><div class="box2-qty">× 1</div></div>
@@ -1656,10 +1668,10 @@ footer {
     <div class="faq2-list">
       <div class="faq2-item open">
         <div class="faq2-q" onclick="toggleFaq2(this)">
-          Why do you ask for ₹99 in advance? Is it safe?
+          Why do you ask for ₹99 in advance?
           <div class="faq2-arr">+</div>
         </div>
-        <div class="faq2-a">The ₹99 prevents fake orders — in the past, unverified customers placed orders then didn't open the door, wasting our delivery team's time. It's NOT part of the product price. It's 100% refundable if you reject. If you accept, it adjusts in your final ₹1,301 cash payment on delivery.</div>
+        <div class="faq2-a">We ask for ₹99 purely to avoid fake orders. In the past, unverified customers placed orders for "timepass" with wrong addresses or didn't open the door — wasting our delivery person's time. Genuine members pay ₹99 because they really want the product. <strong>This is NOT an extra charge</strong> — it will be deducted from your final payment, so you still pay exactly ₹1,400 total. It's just a filter to avoid fake orders.</div>
       </div>
       <div class="faq2-item">
         <div class="faq2-q" onclick="toggleFaq2(this)">
@@ -1701,11 +1713,11 @@ footer {
       <div class="founder2-eyebrow">A Message From Our Founder</div>
       <div class="founder2-title">Hi, I'm Mahesh.<br>I run Zybuds from Secunderabad.</div>
       <div class="founder2-text">
-        I started Zybuds because too many people in Hyderabad were overpaying for gadgets online — with nobody to call when things went wrong. Every product we sell is personally tested at our Telangana Street godown before it leaves. I built the open box delivery system so you never take any risk. The 1-year warranty exists because I believe in what we sell. If you ever have a problem — contact me directly. Not a chatbot. Me. I will personally make sure you're happy.
+        I started Zybuds because too many people in Hyderabad were overpaying for gadgets online — with nobody to call when things went wrong. We are based in <strong>Suman Housing Colony, near Sachin Studio</strong>. Every product is personally tested before it leaves. I built the open box delivery system so you never take any risk. The ₹99 advance exists purely to avoid fake orders from people wasting our time. Genuine customers have no risk — if you aren't happy, I refund your ₹99 immediately.
       </div>
       <div class="founder2-meta">
         <div class="f2-chip">👤 Mahesh, Founder</div>
-        <div class="f2-chip">📍 Telangana Street, Secunderabad</div>
+        <div class="f2-chip">📍 Suman Housing Colony, Secunderabad</div>
         <div class="f2-chip">🏙️ Hyderabad, Telangana</div>
         <div class="f2-chip">🛡️ 1 Year Warranty on All Products</div>
       </div>
@@ -1746,7 +1758,7 @@ footer {
     </div>
   </div>
   <div class="footer2-bottom">
-    <div>© 2025 Zybuds · Telangana Street, Secunderabad, Hyderabad</div>
+    <div>© 2025 Zybuds · Suman Housing Colony, Secunderabad, Hyderabad</div>
     <div>📦 Open Box · 🚀 Same Day · 🛡️ 1 Yr Warranty · 💰 COD</div>
   </div>
 </footer>
